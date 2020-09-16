@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Stock</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button  class="danger ion-align-items-center" (click)="recharger()">Recharger</ion-button>
+  <ion-list>
+    <ion-item *ngFor="let article of articles" (click)="afficherArticle(article.reference)">
+      <ion-label>
+        <h2>Nom : {{article.nom}}</h2>
+        <h3>Réf: {{article.reference}}</h3>
+        <p>
+          <span *ngIf="article.enStock; then enStock else horsStock"></span>
+          <ng-template #enStock ><ion-badge color="success">En Stock</ion-badge></ng-template>
+          <ng-template #horsStock><ion-badge color="danger">Hors Stock</ion-badge></ng-template>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

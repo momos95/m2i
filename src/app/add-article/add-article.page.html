@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajouter un article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <form (ngSubmit)="ajouterNouvelArticle()">
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input type="number" [(ngModel)]="article.id" name="id"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" [(ngModel)]="article.nom" name="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Référence</ion-label>
+        <ion-input type="text" [(ngModel)]="article.reference" name="reference"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dispo.</ion-label>
+        <ion-select (ionChange)="setStock($event)">
+          <ion-select-option value="oui">En Stock</ion-select-option>
+          <ion-select-option value="non">Hors Stock</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button type="submit" color="secondary" block>Ajouter</ion-button>
+    </form>
+  </div>
+</ion-content>

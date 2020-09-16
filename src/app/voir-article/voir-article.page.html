@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Détail Article</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-align-items-center">
+    <ion-button color="danger" block (click)="supprimerArticle()">Supprimer l'article</ion-button>
+  </div>
+  <h4>ID : {{ article.id }}</h4>
+  <h4>Nom : {{ article.nom }}</h4>
+  <h4>Référence: {{ article.reference }}</h4>
+
+
+  <div class="ion-text-center">
+    <form (ngSubmit)="modifierArticle()">
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input type="number" [(ngModel)]="article.id" name="id"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input type="text" [(ngModel)]="article.nom" name="nom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Référence</ion-label>
+        <ion-input type="text" [(ngModel)]="article.reference" name="reference" disabled=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dispo.</ion-label>
+        <ion-select (ionChange)="setStock($event)">
+          <ion-select-option value="oui">En Stock</ion-select-option>
+          <ion-select-option value="non">Hors Stock</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button type="submit" color="warning" block>Modifier</ion-button>
+    </form>
+  </div>
+</ion-content>

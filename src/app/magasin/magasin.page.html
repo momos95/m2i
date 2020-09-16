@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Magasin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <ion-button color="primary" (click)="goToAddArticle()"> Ajouter un article</ion-button>
+    <ion-button color="secondary" (click)="goToListArticle()">Afficher la liste</ion-button>
+  </div>
+</ion-content>
