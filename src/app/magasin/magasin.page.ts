@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {MagasinService} from '../services/magasin.service';
 
 @Component({
   selector: 'app-magasin',
@@ -8,17 +9,12 @@ import {Router} from '@angular/router';
 })
 export class MagasinPage implements OnInit {
 
-  constructor(public router: Router) { }
-
-  goToAddArticle(){
-    this.router.navigateByUrl('/add-article') ;
-  }
-
-  goToListArticle(){
-    this.router.navigateByUrl('/list-article') ;
-  }
-
+  constructor(public service: MagasinService) { }
   ngOnInit() {
+  }
+
+  reset(){
+    this.service.clear() ;
   }
 
 }

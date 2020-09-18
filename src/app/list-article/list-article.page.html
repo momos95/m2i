@@ -13,6 +13,7 @@
   <ion-list>
     <ion-item *ngFor="let article of articles" (click)="afficherArticle(article.reference)">
       <ion-label>
+        <h2>Id : {{article.id}}</h2>
         <h2>Nom : {{article.nom}}</h2>
         <h3>Réf: {{article.reference}}</h3>
         <p>

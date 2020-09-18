@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recherche</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="rechercherArticles()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="nom" name="nom"></ion-input>
+    </ion-item>
+    <ion-button type="submit" color="warning" block>Rechercher</ion-button>
+  </form>
+  <div>
+    <h3>Articles trouvés : {{ nom }}</h3>
+    <ion-list>
+      <ion-item *ngFor="let article of articles" (click)="afficherArticle(article.reference)">
+        <ion-label>
+          <h2>Id : {{article.id}}</h2>
+          <h2>Nom : {{article.nom}}</h2>
+          <h3>Réf: {{article.reference}}</h3>
+          <p>
+            <span *ngIf="article.enStock; then enStock else horsStock"></span>
+            <ng-template #enStock ><ion-badge color="success">En Stock</ion-badge></ng-template>
+            <ng-template #horsStock><ion-badge color="danger">Hors Stock</ion-badge></ng-template>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

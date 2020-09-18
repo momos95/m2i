@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'voir-article/:ref',
     loadChildren: () => import('./voir-article/voir-article.module').then( m => m.VoirArticlePageModule)
   },
+  {
+    path: 'recherche',
+    loadChildren: () => import('./recherche/recherche.module').then( m => m.RecherchePageModule)
+  },
 ];
 
 @NgModule({

@@ -10,7 +10,9 @@
 
 <ion-content>
   <div class="ion-text-center">
-    <ion-button color="primary" (click)="goToAddArticle()"> Ajouter un article</ion-button>
-    <ion-button color="secondary" (click)="goToListArticle()">Afficher la liste</ion-button>
+    <ion-button color="primary" routerLink="/add-article"> Ajouter un article</ion-button>
+    <ion-button color="secondary" routerLink="/list-article">Afficher la liste</ion-button>
+    <ion-button color="secondary" routerLink="/recherche">Recherche</ion-button>
+    <ion-button color="danger" (click)="reset()">Clear</ion-button>
   </div>
 </ion-content>
