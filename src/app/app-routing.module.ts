@@ -39,6 +39,26 @@ const routes: Routes = [
     path: 'recherche',
     loadChildren: () => import('./recherche/recherche.module').then( m => m.RecherchePageModule)
   },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule)
+  },
+  {
+    path: 'list-annonces',
+    loadChildren: () => import('./list-annonces/list-annonces.module').then( m => m.ListAnnoncesPageModule)
+  },
+  {
+    path: 'add-annonce',
+    loadChildren: () => import('./add-annonce/add-annonce.module').then( m => m.AddAnnoncePageModule)
+  },
+  {
+    path: 'add-user',
+    loadChildren: () => import('./add-user/add-user.module').then( m => m.AddUserPageModule)
+  },
+  {
+    path: 'voir-user/:id',
+    loadChildren: () => import('./voir-user/voir-user.module').then( m => m.VoirUserPageModule)
+  },
 ];
 
 @NgModule({

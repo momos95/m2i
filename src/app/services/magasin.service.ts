@@ -19,14 +19,17 @@ export class MagasinService {
   }
 
   private checkLastId(){
-    this.baseDeDonnees.get('lastId').then((data) => {
-      this.lastID = data ;
-    }) ;
+    this.baseDeDonnees.get('lastId')
+        .then((data) => {
+          this.lastID = data ;
+        })
+        .catch((error) => {
+          console.log(error) ;
+        });
   }
 
   private incrementLastId(){
-    this.lastID = this.lastID + 1;
-    console.log(this.lastID) ;
+    this.lastID = this.lastID + 1; // incrémenter l'ID
     this.baseDeDonnees.remove('lastId') ;
     this.baseDeDonnees.set('lastId', this.lastID) ;
   }

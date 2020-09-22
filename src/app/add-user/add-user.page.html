@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="addNewUser()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" [(ngModel)]="user.nom" name="nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Prénom</ion-label>
+      <ion-input type="text" [(ngModel)]="user.prenom" name="prenom"></ion-input>
+    </ion-item>
+   <ion-item>
+     <ion-label>Age</ion-label>
+     <ion-input type="number" [(ngModel)]="user.age" name="age"></ion-input>
+   </ion-item>
+    <ion-button type="submit" color="secondary" block>Ajouter</ion-button>
+  </form>
+</ion-content>

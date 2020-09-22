@@ -46,9 +46,35 @@ export class VoirArticlePage implements OnInit {
   Une fois la suppression effectuée, on se redirige vers la liste des articles.
    */
   supprimerArticle(){
-    this.service.removeArticle(this.article.reference) ;
-    this.showSimpleAlert('Article', 'Suppression d\'un article', 'L\'article a été supprimé avec succès.') ;
-    this.router.navigateByUrl('/list-article') ;
+    this.presentAlertConfirm() ;
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Confirm!',
+      message: 'Message <strong>text</strong>!!!',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Supprimer',
+          cssClass: 'danger',
+          handler: () => {
+            this.service.removeArticle(this.article.reference) ;
+            this.showSimpleAlert('Article', 'Suppression d\'un article', 'L\'article a été supprimé avec succès.') ;
+            this.router.navigateByUrl('/list-article') ;
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   // Fonction qui contrôle le choix de EnStock Vs HorsStock

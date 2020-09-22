@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Bouton "Retour" par défaut -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Annonces</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let a of annonces">
+      <ion-label>
+        <h4>ID: {{a.id}}</h4>
+        <h4>TITRE: {{a.titre}}</h4>
+        <h4>DESCIPTION: {{a.texte}}</h4>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
